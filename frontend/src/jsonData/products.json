@@ -1,0 +1,98 @@
+[
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/airpods.jpg",
+    "id": 1,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb ",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 3.5,
+    "numReviews": 200
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/iphone11pro.jpg",
+    "id": 2,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 4.5,
+    "numReviews": 20
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/joystic.jpg",
+    "id": 3,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 5,
+    "numReviews": 1789
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/macbook.jpg",
+    "id": 4,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 2.5,
+    "numReviews": 2000
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/airpods.jpg",
+    "id": 5,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 3,
+    "numReviews": 100
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/airpods.jpg",
+    "id": 6,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 0,
+    "rating": 4.5,
+    "numReviews": 1678
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/alexa.jpg",
+    "id": 7,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 5,
+    "numReviews": 16725
+  },
+  {
+    "name": "iphone 11 pro",
+    "image": "/images/camera.jpg",
+    "id": 8,
+    "description": "iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb iphone 11 pro with 256Gb",
+    "price": "$1200",
+    "brand": "Apple",
+    "Category": "Electronics",
+    "CountInStock": 5,
+    "rating": 4,
+    "numReviews": 200
+  }
+]

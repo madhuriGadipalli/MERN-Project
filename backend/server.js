@@ -1,21 +1,13 @@
 import express from "express";
+import ProductRoutes from "./routes/productRoutes.js";
 
-//import products from "./data/products.js";
-import products from "./products.json" assert { type: "json" };
 const express = require("express");
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
-
-
-app.get("/api/products", (req, res) => {
- 
-  if (products) {
-        res.send(products);
-  } else {
-    res.send("No Products found");
-  }
-});
+app.use("/api/products", ProductRoutes);
 
 
 

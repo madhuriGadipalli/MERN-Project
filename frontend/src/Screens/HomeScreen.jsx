@@ -1,10 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import { Product } from "../Components/Product";
-import products from "../jsonData/products.json";
+//import products from "../jsonData/products.json";
 import "../styles/homescreen.css";
+import { fetchProducts } from "../Redux/actions/homeScreen";
 
 export const HomeScreen = () => {
+  const products = useSelector((state) => state.products?.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
   return (
     <>
       {console.log("productsss", products)}

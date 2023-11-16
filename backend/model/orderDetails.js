@@ -15,7 +15,7 @@ const orederDetailsSchema = mongoose.Schema(
         price: { type: String, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          required: true,
+          //required: true,
           ref: "Product",
         },
       },
@@ -42,6 +42,11 @@ const orederDetailsSchema = mongoose.Schema(
       default: false,
     },
     shippingPrice: {
+      type: Number,
+      required: true,
+      default: false,
+    },
+    itemsPrice: {
       type: Number,
       required: true,
       default: false,

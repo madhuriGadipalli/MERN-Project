@@ -20,9 +20,16 @@ import { Ratings } from "../Components/Ratings";
 export const ProductScreen = (props) => {
   const [qty, setQty] = useState(1);
   const product = useSelector((state) => state.productInfo?.product);
+  //const product = useSelector((state) => state.productInfo?.product);
   const dispatch = useDispatch();
   const { id } = useParams();
   let navigate = useNavigate();
+
+  // useEffect(() => {
+  //   if (product.addToCart) {
+  //     navigate(`/cart?prodId=${id}&qty=${qty}`);
+  //   }
+  // }, [product.addToCart]);
 
   useEffect(() => {
     dispatch(fetchProduct({ id: id }));
@@ -30,7 +37,7 @@ export const ProductScreen = (props) => {
 
   const addToCartItems = async (id) => {
     await dispatch(addItemsToCart({ id, qty }));
-    navigate(`/cart?prodId=${id}&qty=${qty}`);
+    // navigate(`/cart?prodId=${id}&qty=${qty}`);
   };
 
   //const product = products.find((ele) => ele.id === parseInt(id));
@@ -73,13 +80,16 @@ export const ProductScreen = (props) => {
             <Card className="add-to-cart-block">
               <Row>
                 <Col md={6}>Price</Col>
-                <Col md={6}>{product.price}</Col>
+                <Col md={6}>
+                  {"$"}
+                  {product.price}
+                </Col>
                 <Col md={6}>Status:</Col>
                 <Col md={6}>
                   {product.CountInStock > 0 ? "In stock" : "out of stock"}
                 </Col>
               </Row>
-              {product.CountInStock && (
+              {product?.CountInStock > 0 && (
                 <Row>
                   <Col md={6}>{product.CountInStock > 0 && "qty:"}</Col>
                   <Col md={6}>

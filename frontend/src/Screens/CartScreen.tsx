@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ListGroup,
   Button,
@@ -17,6 +17,7 @@ import {
   deleteItems,
   addItemsToCart,
 } from "../Redux/actions/addToCart";
+import { InfoMessage } from "../Components/InfoBar";
 
 import { cartItems } from "../Redux/Types/addToCart";
 
@@ -28,6 +29,8 @@ type CartProps = {
 
 export const CartScreen = (props: CartProps) => {
   const dispatch = useDispatch();
+
+  let navigate = useNavigate();
 
   const cartItemsList = useSelector(
     (state: any) => state.cartItems?.products,
@@ -44,7 +47,7 @@ export const CartScreen = (props: CartProps) => {
   }, []);
 
   const addItems = () => {
-    dispatch(addToCart({ prodId: prodId, quantiy: qty }));
+    dispatch(addToCart());
   };
 
   const deleteCartItems = (prodId: number | string) => {
@@ -52,117 +55,130 @@ export const CartScreen = (props: CartProps) => {
   };
 
   const callAddToCartApi = async (id: number, qty: string) => {
-    dispatch(
-      await addItemsToCart({
+    await dispatch(
+      addItemsToCart({
         id: id,
         qty: qty,
       })
     );
-    addItems();
+    //await addItems();
   };
-
+  const addDecimals = (num: any) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+  const totalPrice =
+    cartItemsList.length &&
+    cartItemsList.reduce(
+      (acc: string, item: cartItems) =>
+        Number(acc) + Number(item.quantity) * Number(item.price),
+      0
+    );
   return (
     <>
-      <Row>
+      {cartItemsList.length ? (
         <Row>
-          <Col>
-            <Link to={`/product/${prodId}`}>
-              <Button variant="light">Back</Button>
-            </Link>
+          <Row>
+            <Col>
+              <Link to={`/product/${prodId}`}>
+                <Button variant="light">Back</Button>
+              </Link>
+            </Col>
+          </Row>
+          <Col md={8}>
+            {cartItemsList.length ? (
+              cartItemsList.map((item: cartItems, index: number) => (
+                <ListGroup variant="flush" key={index}>
+                  <Row className="products-info">
+                    <Col md={2}>
+                      <Image src={item.image} alt={"image"} fluid rounded />
+                    </Col>
+                    <Col md={2}>
+                      <Link to={`/product/${item._id}`}>{item.name}</Link>
+                      {/* <ListGroupItem> */}
+                      {/* <Link to={`/product/${item.id}`}>{item.name}</Link> */}
+                      {/* <Link to={`/product/${item.id}`}>{item.description}</Link> */}
+                      {/* </ListGroupItem> */}
+                    </Col>
+                    <Col md={2}>
+                      <Form.Control
+                        as="select"
+                        value={item.quantity}
+                        onChange={(e) =>
+                          callAddToCartApi(item._id, e.target.value)
+                        }
+                      >
+                        {[...Array(item.CountInStock).keys()].map((ele) => (
+                          <option key={ele + 1}>{ele + 1}</option>
+                        ))}
+                      </Form.Control>
+                    </Col>
+                    <Col md={2}>
+                      {`$`}
+                      {Number(item.price) * Number(item.quantity)}
+                    </Col>
+                    <Col md={2}>
+                      <span onClick={() => deleteCartItems(item._id)}>
+                        <i className="fa fa-trash" aria-hidden="true"></i>
+                      </span>
+                    </Col>
+                  </Row>
+                </ListGroup>
+              ))
+            ) : (
+              <p>Your cart is empty.</p>
+            )}
           </Col>
-        </Row>
-        <Col md={9}>
-          {cartItemsList.length ? (
-            cartItemsList.map((item: cartItems, index: number) => (
-              <ListGroup variant="flush" key={index}>
-                <Row className="products-info">
-                  <Col md={2}>
-                    <Image src={item.image} alt={"image"} fluid rounded />
-                  </Col>
-                  <Col md={2}>
-                    <Link to={`/product/${item._id}`}>{item.name}</Link>
-                    {/* <ListGroupItem> */}
-                    {/* <Link to={`/product/${item.id}`}>{item.name}</Link> */}
-                    {/* <Link to={`/product/${item.id}`}>{item.description}</Link> */}
-                    {/* </ListGroupItem> */}
-                  </Col>
-                  <Col md={2}>
-                    <Form.Control
-                      as="select"
-                      value={item.quantity}
-                      onChange={(e) =>
-                        callAddToCartApi(item._id, e.target.value)
-                      }
-                    >
-                      {[...Array(item.CountInStock).keys()].map((ele) => (
-                        <option key={ele + 1}>{ele + 1}</option>
-                      ))}
-                    </Form.Control>
-                  </Col>
-                  <Col md={2}>
-                    {`$`}
-                    {Number(item.price) * Number(item.quantity)}
-                  </Col>
-                  <Col md={2}>
-                    <span onClick={() => deleteCartItems(item._id)}>
-                      <i className="fa fa-trash" aria-hidden="true"></i>
-                    </span>
-                  </Col>
-                </Row>
-              </ListGroup>
-            ))
-          ) : (
-            <p>Your cart is empty.</p>
-          )}
-        </Col>
-        <Col md={3}>
-          <Card className="continue-checkout">
-            <Row>
-              <Col>
-                {`Total Items ${
-                  cartItemsList &&
-                  cartItemsList.length &&
-                  cartItemsList.reduce(
-                    (acc: string, item: cartItems) =>
-                      Number(acc) + Number(item.quantity),
-                    0
-                  )
-                }`}
-              </Col>
-              <Row className="price-info">
-                {cartItemsList &&
-                  cartItemsList.length &&
-                  cartItemsList.map((item: cartItems, index: number) => (
-                    <>
-                      <Col md={8} key={index}>
-                        {item.name}
-                      </Col>
-                      <Col md={4} className="price">
-                        ${Number(item.price) * Number(item.quantity)}
-                      </Col>
-                    </>
-                  ))}
-
-                <Col md={6}>{"Total Price"}</Col>
-                <Col md={6} className="price">
-                  {"$"}
-                  {cartItemsList &&
+          <Col md={4}>
+            <Card className="continue-checkout">
+              <Row>
+                <Col>
+                  {`Total Items ${
+                    cartItemsList &&
                     cartItemsList.length &&
                     cartItemsList.reduce(
                       (acc: string, item: cartItems) =>
-                        Number(acc) +
-                        Number(item.quantity) * Number(item.price),
+                        Number(acc) + Number(item.quantity),
                       0
-                    )}
+                    )
+                  }`}
+                </Col>
+                <Row className="price-info">
+                  {cartItemsList &&
+                    cartItemsList.length &&
+                    cartItemsList.map((item: cartItems, index: number) => (
+                      <>
+                        <Col md={8} key={index}>
+                          {item.name}
+                        </Col>
+                        <Col md={4} className="price">
+                          ${Number(item.price) * Number(item.quantity)}
+                        </Col>
+                      </>
+                    ))}
+
+                  <Col md={6}>{"Total Price"}</Col>
+                  <Col md={6} className="price">
+                    {"$"}
+                    {addDecimals(totalPrice)}
+                  </Col>
+                </Row>
+                <Col md={12} className="continue-button">
+                  <Button variant="dark" onClick={() => navigate(`/shipping`)}>
+                    {"Continue Checkout"}
+                  </Button>
                 </Col>
               </Row>
-              <Col md={12} className="continue-button">
-                <Button variant="dark">{"Continue Checkout"}</Button>
-              </Col>
-            </Row>
-          </Card>
-        </Col>
-      </Row>
+            </Card>
+          </Col>
+        </Row>
+      ) : (
+        <div className="shop-more-products">
+          <InfoMessage variant={"info"} message={"Your cart is empty"} />
+          <Button onClick={() => navigate("/")} variant="info">
+            Shop More Products
+          </Button>
+        </div>
+      )}
     </>
   );
 };

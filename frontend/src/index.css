@@ -14,3 +14,9 @@ code {
 main {
   min-height: calc(80vh);
 }
+.shop-more-products {
+  text-align: center;
+}
+.detailsLink a {
+  color: #6495ed !important;
+}

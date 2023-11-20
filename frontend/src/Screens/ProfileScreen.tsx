@@ -47,68 +47,70 @@ export const ProfileScreen = (location: any) => {
     }
   }, [profileInfo]);
   return (
-    <FormContainer>
-      {profileInfo?.message && (
-        <InfoMessage
-          variant={
-            profileInfo.email && profileInfo.message ? "success" : "danger"
-          }
-          message={profileInfo.message}
-        />
-      )}
-      {message && <InfoMessage variant={"danger"} message={message} />}
-      <Form onSubmit={submitHandler}>
-        <h2>Update Details</h2>
-        <Form.Group controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <Form.Group controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Re enter Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
-        <div className="d-flex justify-content-center mt-5">
-          <Button type="submit" variant="primary">
-            {"Submit"}
-          </Button>
-        </div>
-      </Form>
-      <Row className="py-3 text-center">
-        <Col>
-          Already have account ?{" "}
-          <Link to={redirect ? `/signin?redirect=${redirect}` : "/login"}>
-            Login
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+    <>
+      <FormContainer>
+        {profileInfo?.message && (
+          <InfoMessage
+            variant={
+              profileInfo.email && profileInfo.message ? "success" : "danger"
+            }
+            message={profileInfo.message}
+          />
+        )}
+        {message && <InfoMessage variant={"danger"} message={message} />}
+        <Form onSubmit={submitHandler}>
+          <h2>Update Details</h2>
+          <Form.Group controlId="name">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Re enter Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <div className="d-flex justify-content-center mt-5">
+            <Button type="submit" variant="primary">
+              {"Submit"}
+            </Button>
+          </div>
+        </Form>
+        {/* <Row className="py-3 text-center">
+          <Col>
+            Already have account ?{" "}
+            <Link to={redirect ? `/signin?redirect=${redirect}` : "/login"}>
+              Login
+            </Link>
+          </Col>
+        </Row> */}
+      </FormContainer>
+    </>
   );
 };

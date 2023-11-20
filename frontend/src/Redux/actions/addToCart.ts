@@ -1,10 +1,10 @@
 import { FETCH_ADD_TO_CART, FETCHED_ADD_TO_CART,DELETE_CART_ITEM, ADD_ITEMS_TO_CART } from "../constants";
 import {products} from '../Types/addToCart'
 
-export const addToCart = (payload:any) => {
+export const addToCart = () => {
   return {
     type: FETCH_ADD_TO_CART,
-    payload:payload,
+    
   };
 };
 export const saveAddToCart = (payload:any) => {

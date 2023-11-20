@@ -1,4 +1,4 @@
-import {FETCH_LOGIN,LOGIN_SUCCESS, LOGIN_FAILED} from "../constants"
+import {FETCH_LOGIN,LOGIN_SUCCESS, LOGIN_FAILED,LOGOUT_USER,LOGIN_SESSION} from "../constants"
 
 export const fetchLogin=(payload:any)=>{
     return{
@@ -16,5 +16,18 @@ export const loginFailed=(payload:any)=>{
     return{
         type: LOGIN_FAILED,
         payload
+    }
+}
+
+export const loginSession=()=>{
+    return{
+        type: LOGIN_SESSION,
+   }
+}
+
+
+export const logoutUser=()=>{
+    return{
+        type:LOGOUT_USER
     }
 }

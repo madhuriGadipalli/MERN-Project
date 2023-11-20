@@ -1,4 +1,4 @@
-import {  FETCH_LOGIN,LOGIN_SUCCESS, LOGIN_FAILED } from "../constants";
+import {  FETCH_LOGIN,LOGIN_SUCCESS, LOGIN_FAILED,LOGOUT_USER } from "../constants";
 
 const initialState = {
     res:''
@@ -16,6 +16,10 @@ export const SignInReducer = (state = initialState, action:any) => {
       const upadteFailedState = { ...state };
       upadteFailedState.res = action.payload?.response?.data;
       return upadteFailedState;
+    case LOGOUT_USER:
+        const updateLogoutState={...state};
+        updateLogoutState.res='';
+        return updateLogoutState;
     default:
       return state;
   }

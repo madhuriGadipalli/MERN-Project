@@ -9,7 +9,7 @@ import {
   Card,
   Form,
 } from "react-bootstrap";
-import { PayPalButton } from "react-paypal-button-v2";
+// import { PayPalButton } from "react-paypal-button-v2";
 
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { NavigationItems } from "../Components/NavigationItems";
@@ -47,26 +47,26 @@ export const OrderScreen = ({ match }: any) => {
     dispatch(getorderDeatils({ id }));
   }, []);
 
-  useEffect(() => {
-    function injectSdk() {
-      if (paypalSecretKey) {
-        const script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = `https://www.paypal.com/sdk/js?client-id=${paypalSecretKey}`;
-        script.async = true;
-        script.onload = () => setSdkReady(true);
-        document.body.appendChild(script);
-      }
-    }
-    if (!OrderInfo || OrderDet.success) {
-      dispatch(getorderDeatils({ id }));
-      dispatch(payOrderReset());
-    } else if (!window.paypal) {
-      injectSdk();
-    } else {
-      setSdkReady(true);
-    }
-  }, [paypalSecretKey, OrderDet]);
+  // useEffect(() => {
+  //   function injectSdk() {
+  //     if (paypalSecretKey) {
+  //       const script = document.createElement("script");
+  //       script.type = "text/javascript";
+  //       script.src = `https://www.paypal.com/sdk/js?client-id=${paypalSecretKey}`;
+  //       script.async = true;
+  //       script.onload = () => setSdkReady(true);
+  //       document.body.appendChild(script);
+  //     }
+  //   }
+  //   if (!OrderInfo || OrderDet.success) {
+  //     dispatch(getorderDeatils({ id }));
+  //     dispatch(payOrderReset());
+  //   } else if (!window.paypal) {
+  //     injectSdk();
+  //   } else {
+  //     setSdkReady(true);
+  //   }
+  // }, [paypalSecretKey, OrderDet]);
 
   const paymentHandler = (paymentResult: any) => {
     console.log("paymentResult", paymentResult);
@@ -196,10 +196,10 @@ export const OrderScreen = ({ match }: any) => {
               </ListGroup.Item>
               {!OrderInfo.isPaid ? (
                 <ListGroup.Item>
-                  <PayPalButton
+                  {/* <PayPalButton
                     amount={OrderInfo.totalPrice}
                     onSuccess={paymentHandler}
-                  />
+                  /> */}
                 </ListGroup.Item>
               ) : (
                 ""

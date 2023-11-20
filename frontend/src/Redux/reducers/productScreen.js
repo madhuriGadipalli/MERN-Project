@@ -10,6 +10,7 @@ export const ProductScreenReducer = (state = initialState, action) => {
       const updatedState = { ...state };
       updatedState.product = action?.payload?.data;
       return updatedState;
+
     default:
       return state;
   }
